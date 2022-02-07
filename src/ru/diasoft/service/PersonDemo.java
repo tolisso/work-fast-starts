@@ -1,26 +1,20 @@
 package ru.diasoft.service;
 
-import ru.diasoft.domain.Person;
+import ru.diasoft.domain.Student;
 
 public class PersonDemo {
 
-  private final Person person;
+  private final Student student;
 
-  public PersonDemo(Person person) {
-    this.person = person;
+  public PersonDemo(Student student) {
+    this.student = student;
   }
 
   public void demo() {
-    PersonPrinter.printFI(person);
-
-    PersonPrinter.printInfo(person);
-
+    Printer pprint = new PersonPrinter();
+    StudentPrinter sprint = new StudentPrinter();
+    pprint.printInfo(student);
     System.out.println();
-    System.out.println("time passed");
-
-    person.setAge(person.getAge() + 1);
-    person.setPhone("+7(777)322-13-37");
-
-    PersonPrinter.printInfo(person);
+    sprint.printInfo(student);
   }
 }

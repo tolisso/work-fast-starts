@@ -12,7 +12,7 @@ public class PersonDemo {
 
   public void demo() {
     Printer pprint = new PersonPrinter();
-    StudentPrinter sprint = new StudentPrinter();
+    Printer sprint = new StudentPrinter();
     pprint.printInfo(student);
     System.out.println();
     sprint.printInfo(student);

@@ -15,10 +15,12 @@ public class Main {
     Reader r = null;
     try {
       r = Files.newBufferedReader(Paths.get("aba"));
+      throw new Exception();
     } catch (IOException exc) {
       System.out.println("IOException: " + exc.getMessage());
+    } catch (Exception exc) {
+      System.out.println("Exception: " + exc.getMessage());
     } finally {
-      // r.close() throws IOException, main can do so
       r.close();
     }
   }

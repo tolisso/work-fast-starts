@@ -1,10 +1,14 @@
 package ru.diasoft.domain;
 
+import java.util.Comparator;
+import java.util.TreeSet;
 import lombok.Data;
 
 public class Student extends Person {
   private String group;
   private int score;
+  private TreeSet<Course> courses
+      = new TreeSet<>(Comparator.comparing(Course::getTitle).reversed());
 
   public Student(String firstName, String secondName, int age) {
     super(firstName, secondName, age);
@@ -31,5 +35,13 @@ public class Student extends Person {
 
   public void setScore(int score) {
     this.score = score;
+  }
+
+  public TreeSet<Course> getCourses() {
+    return courses;
+  }
+
+  public void addCourse(Course c) {
+    courses.add(c);
   }
 }

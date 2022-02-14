@@ -1,18 +1,24 @@
 package ru.diasoft;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Predicate;
+import ru.diasoft.domain.Course;
 import ru.diasoft.domain.Student;
+import ru.diasoft.repository.StudentRepository;
 import ru.diasoft.service.PersonDemo;
+import ru.diasoft.service.StudentPrinter;
 
 public class Main {
 
   public static void main(String[] args) {
-    new PersonDemo(
-        new Student(
-            "Vova",
-            "Kupchin",
-            25,
-            "+7(123)456-78-90",
-            "M33381",
-            85)).demo();
+
+    new StudentRepository().getFaculty().students()
+        .forEach(s -> {
+          new StudentPrinter().printInfo(s);
+          System.out.println();
+        });
   }
 }

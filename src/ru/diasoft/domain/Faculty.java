@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Faculty {
+
   private List<Student> students = new ArrayList<>();
 
   public void addStudent(Student s) {

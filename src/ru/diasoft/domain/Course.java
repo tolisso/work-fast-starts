@@ -1,6 +1,7 @@
 package ru.diasoft.domain;
 
 public class Course {
+
   private final String title;
   private final int score;
 

@@ -1,6 +1,7 @@
 package ru.diasoft.domain;
 
 public class Person {
+
   private final String firstName;
   private final String secondName;
   private int age;

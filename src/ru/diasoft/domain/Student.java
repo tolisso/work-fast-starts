@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import lombok.Data;
 
 public class Student extends Person {
+
   private String group;
   private int score;
   private TreeSet<Course> courses

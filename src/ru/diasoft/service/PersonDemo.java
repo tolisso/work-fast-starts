@@ -1,20 +1,14 @@
 package ru.diasoft.service;
 
-import ru.diasoft.domain.Student;
+import ru.diasoft.repository.StudentRepository;
 
 public class PersonDemo {
 
-  private final Student student;
-
-  public PersonDemo(Student student) {
-    this.student = student;
-  }
-
   public void demo() {
-    Printer pprint = new PersonPrinter();
-    Printer sprint = new StudentPrinter();
-    pprint.printInfo(student);
-    System.out.println();
-    sprint.printInfo(student);
+    new StudentRepository().getFaculty().students()
+        .forEach(s -> {
+          new StudentPrinter().printInfo(s);
+          System.out.println();
+        });
   }
 }

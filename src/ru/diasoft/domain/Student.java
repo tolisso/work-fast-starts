@@ -8,7 +8,7 @@ public class Student extends Person {
   private String group;
   private int score;
   private TreeSet<Course> courses
-      = new TreeSet<>(Comparator.comparing(Course::getTitle).reversed());
+      = new TreeSet<>((a, b) -> b.getTitle().compareTo(a.getTitle()));
 
   public Student(String firstName, String secondName, int age) {
     super(firstName, secondName, age);

@@ -9,8 +9,13 @@ import ru.diasoft.domain.Student;
 
 public class FacultyOperationsImpl implements FacultyOperations {
 
+  private Faculty faculty;
+  public FacultyOperationsImpl(Faculty faculty) {
+    this.faculty = faculty;
+  }
+
   @Override
-  public List<Student> byName(Faculty faculty, String name) {
+  public List<Student> byName(String name) {
     return faculty
         .students()
         .stream()
@@ -19,7 +24,7 @@ public class FacultyOperationsImpl implements FacultyOperations {
   }
 
   @Override
-  public List<Student> getBestStudents(Faculty faculty) {
+  public List<Student> getBestStudents() {
     return faculty
         .students()
         .stream()
@@ -28,7 +33,7 @@ public class FacultyOperationsImpl implements FacultyOperations {
   }
 
   @Override
-  public List<Student> sortBySecondNameAlphabetic(Faculty faculty) {
+  public List<Student> sortBySecondNameAlphabetic() {
     return faculty
         .students()
         .stream()

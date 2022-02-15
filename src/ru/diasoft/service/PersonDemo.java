@@ -9,18 +9,18 @@ public class PersonDemo {
 
   public void demo() {
     Faculty f = new StudentRepository().getFaculty();
-    FacultyOperations operations = new FacultyOperationsImpl();
+    FacultyOperations operations = new FacultyOperationsImpl(f);
 
     System.out.println(operations
-        .byName(f, "Vova")
+        .byName("Vova")
         .stream()
         .map(s -> s.getFirstName() + " " + s.getSecondName())
         .collect(Collectors.toList()));
-    System.out.println(operations.getBestStudents(f)
+    System.out.println(operations.getBestStudents()
         .stream()
         .map(s -> s.getFirstName() + " " + s.getSecondName())
         .collect(Collectors.toList()));
-    System.out.println(operations.sortBySecondNameAlphabetic(f).stream()
+    System.out.println(operations.sortBySecondNameAlphabetic().stream()
         .map(s -> s.getFirstName() + " " + s.getSecondName())
         .collect(Collectors.toList()));
   }

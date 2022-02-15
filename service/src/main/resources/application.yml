@@ -1,0 +1,8 @@
+server:
+  port: ${SERVICE_PORT}
+  servlet:
+    context-path: /${SERVICE_NAME:emalko} 
+
+spring:
+  profiles:
+    include: shared

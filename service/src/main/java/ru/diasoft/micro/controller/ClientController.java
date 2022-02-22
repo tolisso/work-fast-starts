@@ -2,8 +2,7 @@ package ru.diasoft.micro.controller;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,16 +15,16 @@ import ru.diasoft.micro.service.ClientService;
 @RequiredArgsConstructor
 public class ClientController {
 
-  private final Logger logger = LogManager.getLogger(this.getClass());
   private final ClientService clientService;
 
   @GetMapping("/get-clients")
-  public List<Client> getClients() {
-    return clientService.getAll();
+  public ResponseEntity<List<Client>> getClients() {
+    return ResponseEntity.ok(clientService.getAll());
   }
 
   @PostMapping("/add-client")
-  public void addClient(@RequestBody ClientDto clientDto) {
+  public ResponseEntity<String> addClient(@RequestBody ClientDto clientDto) {
     clientService.save(clientDto);
+    return ResponseEntity.ok("ok");
   }
 }

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" >
-    <Appenders>
-        <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <DQLayout format="text"/>
-        </Console>               
-    </Appenders>
-    <Loggers>
-        <Root level="info">
-            <AppenderRef ref="ConsoleAppender" />
-        </Root>
-    </Loggers>
+<Configuration status="warn">
+  <Appenders>
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <DQLayout format="text"/>
+    </Console>
+    <File name="dsLog" fileName="dsLog.log">
+      <PatternLayout>
+        <Pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %replace{%msg}{}{}%n</Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="ConsoleAppender"/>
+      <AppenderRef ref="dsLog"/>
+    </Root>
+  </Loggers>
 </Configuration>

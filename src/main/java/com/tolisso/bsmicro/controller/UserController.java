@@ -1,6 +1,6 @@
 package com.tolisso.bsmicro.controller;
 
-import com.tolisso.bsmicro.dto.Greeting;
+import com.tolisso.bsmicro.dom.User;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-public class GreetingController {
+public class UserController {
 
     private final UserService userService;
 
@@ -26,7 +26,7 @@ public class GreetingController {
     }
 
     @GetMapping("/get-all")
-    public List<String> getAll() {
+    public List<User> getAll() {
         return userService.getUsers();
     }
 

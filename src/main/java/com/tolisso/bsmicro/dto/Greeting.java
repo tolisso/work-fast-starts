@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Greeting {
 
-  private long id;
-  private String content;
+    private long id;
+    private String content;
 }
 

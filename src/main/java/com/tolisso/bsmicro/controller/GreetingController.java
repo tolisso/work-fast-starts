@@ -2,23 +2,36 @@ package com.tolisso.bsmicro.controller;
 
 import com.tolisso.bsmicro.dto.Greeting;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.tolisso.bsmicro.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 public class GreetingController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    private final UserService userService;
 
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        Greeting greeting = new Greeting();
-        greeting.setContent(String.format(template, name));
-        greeting.setId(counter.incrementAndGet());
-        return greeting;
+    @PutMapping("/put")
+    public void put(@RequestParam(value = "name") String name) {
+        userService.putUser(name);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam(value = "name") String name) {
+        userService.deleteUser(name);
+    }
+
+    @GetMapping("/get-all")
+    public List<String> getAll() {
+        return userService.getUsers();
+    }
+
+    @PostMapping("/change-name")
+    public void change(@RequestParam(value = "from") String from, @RequestParam(value = "to") String to) {
+        userService.changeUser(from, to);
     }
 }

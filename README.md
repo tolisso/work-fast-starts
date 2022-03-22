@@ -1,4 +1,4 @@
 пример работы
 
 можно было бы при замене имени юзера, не создавать нового и удалять старого, а найти его поимени, ихменить имя, и сделать save() в репозотории
-![Untitled-1](https://user-images.githubusercontent.com/57497898/159454202-eb055dc2-8d1f-4676-9454-b1cfc139b1a9.png)
+![Untitled-1](https://user-images.githubusercontent.com/57497898/159454861-3444c29b-0626-406c-bd55-ee96d21ced3a.png)

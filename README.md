@@ -1,4 +1,3 @@
-пример запуска
+transactional методы
 
-
-![Untitled-1](https://user-images.githubusercontent.com/57497898/159486703-25e12509-0e49-405a-b0ae-22b7483a7cc9.png)
+![Untitled-1-Recovered-Recovered](https://user-images.githubusercontent.com/57497898/160831877-9cf7830c-9fde-4ff3-bb43-dec6ef8d3385.png)

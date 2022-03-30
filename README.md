@@ -1,3 +1,3 @@
 transactional методы
 
-![Untitled-1-Recovered-Recovered](https://user-images.githubusercontent.com/57497898/160831877-9cf7830c-9fde-4ff3-bb43-dec6ef8d3385.png)
+![image](https://user-images.githubusercontent.com/57497898/160854691-5dae3bf9-d3f1-418d-975f-efada2c97169.png)

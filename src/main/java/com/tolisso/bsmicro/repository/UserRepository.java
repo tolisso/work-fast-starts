@@ -14,4 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
     @Modifying
     void removeByName(String name);
+
+    @Transactional()
+    void getAllByName(String name);
 }

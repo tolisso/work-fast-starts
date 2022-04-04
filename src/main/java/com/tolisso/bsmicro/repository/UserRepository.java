@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     void removeByName(String name);
 
     @Transactional
-    void getAllByName(String name);
+    User getByName(String name);
 
     @Transactional
     void deleteAllByName(String str);

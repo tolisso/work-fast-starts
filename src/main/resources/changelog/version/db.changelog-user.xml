@@ -32,7 +32,7 @@
     <createIndex tableName="appuser" indexName="appuser_name_index">
       <column name="name"/>
     </createIndex>
-    <addAutoIncrement tableName="appuser" columnName="id"/>
+    <addAutoIncrement columnDataType="bigint" tableName="appuser" columnName="id"/>
   </changeSet>
 
 </databaseChangeLog>

@@ -1,42 +1,44 @@
 package com.tolisso.bsmicro.service;
 
 import com.tolisso.bsmicro.dom.User;
-import com.tolisso.bsmicro.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.config.annotation.authentication.configurers.provisioning.UserDetailsManagerConfigurer;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+
+import static com.tolisso.bsmicro.dom.Role.USER;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
-    private final UserRepository userRepository;
+public class UserService implements UserDetailsService {
+    private HashMap<String, User> userMap = new HashMap<>();
+    private final PasswordEncoder passwordEncoder;
 
-    public List<User> getUsers() {
-        return userRepository.findAll();
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        if (!userMap.containsKey(s)) {
+            throw new UsernameNotFoundException(s + " not found");
+        }
+        return userMap.get(s);
     }
 
-    public void putUser(String name) {
+    @PostConstruct
+    public void loadData() {
         User user = new User();
-        user.setName(name);
-        userRepository.save(user);
-    }
+        user.setUsername("guest");
+        user.setPassword(passwordEncoder.encode("1234"));
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+        user.setCredentialsNonExpired(true);
+        user.setEnabled(true);
+        user.setAuthorities(List.of(USER));
 
-    public void deleteUser(String user) {
-        userRepository.removeByName(user);
-    }
-
-    public void changeUser(String from, String to) {
-        deleteUser(from);
-        putUser(to);
+        userMap.put(user.getUsername(), user);
     }
 }

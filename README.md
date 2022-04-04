@@ -1,3 +1,3 @@
-проходящие тесты
+Пример работы
 
-![image](https://user-images.githubusercontent.com/57497898/160854691-5dae3bf9-d3f1-418d-975f-efada2c97169.png)
+![Untitled-5](https://user-images.githubusercontent.com/57497898/161561438-4ae15f43-0458-42ed-bba4-1fe485854e64.png)
